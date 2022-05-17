@@ -1,5 +1,6 @@
 function checkModule() {
 
+    //CREAZIONE VARIABILI CON VALORE IL VALORI DEI CAMPI DEL FORM
     var valueName = document.modulo.name.value;
     var valueSurname = document.modulo.surname.value;
     var valueEmail = document.modulo.email.value;
@@ -7,6 +8,7 @@ function checkModule() {
     var valuePw = document.modulo.password.value;
     var valueCheckPw = document.modulo.checkPw.value;
 
+    //ESPRESSIONI REGOLARI O PATTERN PER DETERMINARE LE CONDIZIONI DELL'EMAIL E DELLA PASSWORD
     var emailReg = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-]{2,})+.)+([a-zA-Z0-9]{2,})+$/;
     var pwReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.*[!@#\$%\^&\*])(?=.*[!@#\$%\^&\*])(?=.{10,})/;
     var noWhitespace = /\s/g;
@@ -15,7 +17,7 @@ function checkModule() {
     var noName = valuePw.toLowerCase().includes(valueName.toLowerCase());
     var noSurname = valuePw.toLowerCase().includes(valueSurname.toLowerCase());
 
-    // Variabili associate ai campi del modulo
+    //OGGETTO CONTENENTE I NOMI DEI CAMPO E LA CONDIZIONE DA SODDISFARE
     var fields = [
         {
             name : 'name',
@@ -44,8 +46,8 @@ function checkModule() {
         }
     ]
 
-    // Espressione regolare dell'email
     
+    //CICLO FOR PER VALUTARE OGNI CAMPO DEL FORM ED ASSEGNARGLI UN COLORE SE CORRETTO O NO
     for(var i = 0; i < fields.length; i++){
         if(fields[i].condition){
             console.log(i)
@@ -53,6 +55,7 @@ function checkModule() {
             document.getElementById(fields[i].name).classList.remove("is-valid")
             document.getElementById(fields[i].name).classList.add("is-invalid")
         }else{
+            console.log('ciao')
             document.getElementById("error" + i).classList.add("noError")
             document.getElementById(fields[i].name).classList.remove("is-invalid")
             document.getElementById(fields[i].name).classList.add("is-valid")

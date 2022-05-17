@@ -1,3 +1,21 @@
 .noError{
     display: none;
 }
+
+.error{
+    text-align: center;
+    width: 100%;
+}
+
+.form{
+    margin: 50px auto;
+    max-width: 1000px !important;
+}
+
+.form-group{
+    justify-content: center;
+}
+
+li{
+    list-style: none;
+}
